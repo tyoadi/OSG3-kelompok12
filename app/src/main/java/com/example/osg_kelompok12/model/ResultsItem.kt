@@ -8,69 +8,66 @@ import com.google.gson.annotations.SerializedName
 @Entity(tableName = "actor")
 data class ResultsItem(
 	@PrimaryKey(autoGenerate = true)
-	val id: Int?,
-
-	@ColumnInfo(name = "films")
-	@field:SerializedName("films")
-	val films: List<String>? = null,
+	@ColumnInfo(name = "id")
+	var id: Int?,
 
 	@ColumnInfo(name = "homeworld")
 	@field:SerializedName("homeworld")
-	val homeworld: String? = null,
+	var homeworld: String?,
 
 	@ColumnInfo(name = "gender")
 	@field:SerializedName("gender")
-	val gender: String? = null,
+	var gender: String?,
 
 	@ColumnInfo(name = "skin_color")
 	@field:SerializedName("skin_color")
-	val skinColor: String? = null,
+	var skinColor: String?,
 
 	@ColumnInfo(name = "edited")
 	@field:SerializedName("edited")
-	val edited: String? = null,
+	var edited: String?,
 
 	@ColumnInfo(name = "created")
 	@field:SerializedName("created")
-	val created: String? = null,
+	var created: String?,
 
 	@ColumnInfo(name = "mass")
 	@field:SerializedName("mass")
-	val mass: String? = null,
-
-	@ColumnInfo(name = "vehicles")
-	@field:SerializedName("vehicles")
-	val vehicles: List<String>? = null,
+	var mass: String?,
 
 	@ColumnInfo(name = "url")
 	@field:SerializedName("url")
-	val url: String? = null,
+	var url: String?,
 
 	@ColumnInfo(name = "hair_color")
 	@field:SerializedName("hair_color")
-	val hairColor: String? = null,
+	var hairColor: String,
 
 	@ColumnInfo(name = "birth_year")
 	@field:SerializedName("birth_year")
-	val birthYear: String? = null,
+	var birthYear: String?,
 
 	@ColumnInfo(name = "eye_color")
 	@field:SerializedName("eye_color")
-	val eyeColor: String? = null,
-
-	@ColumnInfo(name = "species")
-	@field:SerializedName("species")
-	val species: List<String>? = null,
-
-	@ColumnInfo(name = "starships")
-	@field:SerializedName("starships")
-	val starships: List<String>? = null,
+	var eyeColor: String?,
 
 	@ColumnInfo(name = "name")
 	@field:SerializedName("name")
-	val name: String? = null,
+	var name: String?,
 
 	@ColumnInfo(name = "height")
 	@field:SerializedName("height")
-	val height: String? = null
+	var height: String?,
+
+	@field:SerializedName("films")
+	var films: List<String>?,
+
+	@field:SerializedName("vehicles")
+	var vehicles: List<String>?,
+
+	@field:SerializedName("species")
+	var species: List<String>?,
+
+	@field:SerializedName("starships")
+	var starships: List<String>?
 )

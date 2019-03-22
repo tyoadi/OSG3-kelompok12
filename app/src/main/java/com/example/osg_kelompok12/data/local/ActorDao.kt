@@ -11,5 +11,5 @@ interface ActorDao {
     fun getActor(): List<ResultsItem>
 
     @Insert
-    fun insertActor(actor: List<ResultsItem>)
+    fun insertActor(actorLocalItem: List<ResultsItem>)
 }

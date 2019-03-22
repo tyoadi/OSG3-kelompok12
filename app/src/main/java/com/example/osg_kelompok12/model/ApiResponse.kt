@@ -8,7 +8,7 @@ data class ApiResponse(
 	val next: String? = null,
 
 	@field:SerializedName("previous")
-	val previous: Any? = null,
+	val previous: Int? = null,
 
 	@field:SerializedName("count")
 	val count: Int? = null,
