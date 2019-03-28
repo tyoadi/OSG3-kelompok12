@@ -3,8 +3,11 @@ package com.example.osg_kelompok12.model
 import android.arch.persistence.room.ColumnInfo
 import android.arch.persistence.room.Entity
 import android.arch.persistence.room.PrimaryKey
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 @Entity(tableName = "actor")
 data class ResultsItem(
 	@PrimaryKey(autoGenerate = true)
@@ -70,4 +73,4 @@ data class ResultsItem(
 
 	@field:SerializedName("starships")
 	var starships: List<String>?
-)
+): Parcelable
