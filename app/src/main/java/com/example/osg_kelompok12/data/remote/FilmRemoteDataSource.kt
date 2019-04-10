@@ -1,28 +1,26 @@
 package com.example.osg_kelompok12.data.remote
 
-import com.example.osg_kelompok12.data.ActorDataSource
 import com.example.osg_kelompok12.data.FilmDataSource
-import com.example.osg_kelompok12.model.ApiResponse
 import com.example.osg_kelompok12.model.Film
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class ActorRemoteDataSource : ActorDataSource {
+class FilmRemoteDataSource : FilmDataSource {
 
     private val apiInterface = ApiClient.getClient()
 
-    override fun getListPeople(callBack: ActorDataSource.GetPeopleCallBack) {
-        val call = apiInterface.getPeople()
-        call.enqueue(object : Callback<ApiResponse> {
-            override fun onFailure(call: Call<ApiResponse>, t: Throwable) {
+    override fun getListFilm(callBack: FilmDataSource.GetFilmCallBack, link: String?) {
+        val call = apiInterface.getFilm(link)
+        call.enqueue(object : Callback<Film> {
+            override fun onFailure(call: Call<Film>, t: Throwable) {
                 callBack.onDataNotAvailable(t.message)
             }
 
-            override fun onResponse(call: Call<ApiResponse>, response: Response<ApiResponse>) {
+            override fun onResponse(call: Call<Film>, response: Response<Film>) {
                 when(response.code()) {
                     200 -> {
-                        callBack.onPeopleLoaded(response.body()?.results)
+                        callBack.onFilmLoaded(response.body())
                     }
 
                     else -> {
@@ -30,6 +28,7 @@ class ActorRemoteDataSource : ActorDataSource {
                     }
                 }
             }
+
         })
     }
 }

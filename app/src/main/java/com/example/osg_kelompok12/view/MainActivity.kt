@@ -1,9 +1,11 @@
 package com.example.osg_kelompok12.view
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
+import android.widget.Toast
 import com.example.osg_kelompok12.R
 import com.example.osg_kelompok12.adapter.ActorAdapter
 import com.example.osg_kelompok12.model.ResultsItem
@@ -37,7 +39,9 @@ class MainActivity : AppCompatActivity(), ActorNavigator {
         Log.d("Sukses Online", data.size.toString())
         runOnUiThread {
             actorAdapter = ActorAdapter(this, data) {
-
+                val intent = Intent(this, DetailActivity::class.java)
+                intent.putExtra("result_item", it)
+                startActivity(intent)
             }
             recyclerView.layoutManager = LinearLayoutManager(this)
             recyclerView.adapter = actorAdapter
